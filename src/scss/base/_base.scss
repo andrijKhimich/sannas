@@ -12,8 +12,9 @@ html {
 body {
   margin: 0; // Remove the margin in all browsers.
   font-size: 16px;
-  // font-family: $font-secondary;
-  // color: $white;
+  font-family: "Futura", Arial, Helvetica, sans-serif;
+  color: $white;
+  background-color: $black;
   -webkit-font-smoothing: antialiased;
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;
@@ -62,7 +63,6 @@ h1 {
   font-size: 100px;
   line-height: .8em;
   letter-spacing: 1px;
-  // color: $gray;
 
   @include d(1299) {
     font-size: 90px;
@@ -91,6 +91,8 @@ h2 {
 
 h3 {
   line-height: 1em;
+  font-size: 35px;
+  font-weight: 900;
 }
 
 h4 {
@@ -311,10 +313,9 @@ template {
 
 p,
 li {
-  line-height: 1.5em;
+  line-height: 1.6em;
   margin: 0;
-  font-size: 18px;
-  color: $black;
+  font-size: inherit;
 
   @include d(768) {
     font-size: 16px;
@@ -335,12 +336,12 @@ ol {
 section.section {
   position: relative;
   overflow: hidden;
+  min-height: 100vh;
+}
 
-  // height: 100vh;
-  // height: 100%;
-  .container_lg {
-    height: 100%;
-  }
+.section-row {
+  display: flex;
+  align-items: center;
 }
 
 tr {
@@ -439,27 +440,10 @@ input {
 }
 
 .container {
-  max-width: 1140px;
+  max-width: 1270px;
   margin: 0 auto;
   padding: 0 15px;
-
-  &_lg {
-    max-width: 1440px;
-    padding: 0 15px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 1;
-
-    @include d(1300) {
-      max-width: 95%;
-      padding: 0;
-    }
-
-    @include d(767) {
-      max-width: 100%;
-      padding: 0 30px;
-    }
-  }
+  position: relative;
 }
 
 .main,
@@ -513,3 +497,66 @@ main {
   @extend h6;
 }
 
+.btn {
+  background-color: transparent;
+  padding: 29px 72px;
+  font-size: 22px;
+  text-transform: uppercase;
+  color: $white;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  position: relative;
+  cursor: pointer;
+
+  &_pink {
+    &::before {
+      content: "";
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-image: url(../img/btn-pink.png);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+}
+
+.btn-scroll {
+  position: absolute;
+  bottom: 8%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index: 1;
+  padding-bottom: 15px;
+
+  &::before {
+    content: "";
+    width: 9px;
+    height: 6px;
+    background-image: url(../img/down.svg);
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    background-size: contain;
+    transform-origin: 50% 50%;
+    animation: jump .5s linear alternate infinite;
+  }
+}
+
+@keyframes jump {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  40% {
+    transform: translate3d(0, 30%, 0);
+  }
+
+  100% {
+    transform: translate3d(0, 100%, 0);
+  }
+}

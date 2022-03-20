@@ -1,12 +1,25 @@
+.header {
+  color: $gray-400;
+  padding: 47px 0;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+}
+
 .header-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-right: -10px;
 }
 
 .logo {
-  max-width: 100px;
+  max-width: 158px;
+  margin-right: 20px;
   display: inline-block;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
 }
 
 .nav {
@@ -23,7 +36,12 @@
 
     &__link,
     a {
-      padding: 10px 15px;
+      padding: 10px;
+      font-size: 20px;
     }
   }
+}
+
+.burger {
+  display: none;
 }

@@ -1,0 +1,493 @@
+.hero {
+  padding: 160px 0 70px 0;
+
+  &::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-image: url(../img/hero-grid.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 1240px;
+  }
+
+  &__text {
+    max-width: 445px;
+    font-size: 17px;
+    position: relative;
+    z-index: 1;
+
+    img {
+      max-width: 385px;
+      margin-bottom: 26px;
+    }
+
+    p {
+      margin-bottom: 22px;
+      line-height: 1.3em;
+
+      &:last-of-type {
+        margin-bottom: 45px;
+      }
+    }
+  }
+
+  &__img {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 71%;
+  }
+
+  &-light {
+    position: absolute;
+
+    &_top {
+      right: 0;
+      top: 0;
+      max-width: 60%;
+    }
+
+    &_bottom {
+      bottom: 0;
+      left: 0;
+      max-width: 50%;
+    }
+  }
+}
+
+.about {
+  padding: 150px 0 80px;
+
+  &::before,
+  &::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-image: url(../img/hero-grid.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    transform: translate(-50%, 0%);
+    max-width: 1240px;
+    left: 50%;
+    z-index: 0;
+    opacity: .4;
+  }
+
+  &::before {
+    top: 5%;
+    background-position: 0 0;
+  }
+
+  &::after {
+    bottom: 5%;
+    background-position: 0 100%;
+
+  }
+
+  &-light {
+    position: absolute;
+
+    &_top {
+      right: 0;
+      top: 0;
+      max-width: 60%;
+    }
+
+    &_middle {
+      top: 10%;
+      left: 0;
+      max-width: 40%;
+    }
+
+    &_bottom {
+      bottom: 0;
+      left: 0;
+      max-width: 500px;
+      z-index: 1;
+    }
+
+  }
+
+  &__img {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 190px;
+    z-index: 0;
+  }
+
+  &__content {
+    max-width: 1080px;
+    margin-right: 0;
+    margin-left: auto;
+    margin-top: -50px;
+    position: relative;
+    z-index: 1;
+
+    h2 {
+      margin-bottom: 65px;
+    }
+
+    img {
+      max-width: 860px;
+      position: relative;
+      top: 0;
+      right: -320px;
+    }
+  }
+
+  &__text {
+    margin-right: 0;
+    margin-left: auto;
+    font-size: 24px;
+    margin-bottom: 122px;
+
+    &:first-of-type {
+      max-width: 770px;
+
+      h3:before {
+        background-image: url(../img/about-title-1.png);
+      }
+    }
+
+    &:nth-child(3) {
+      max-width: 924px;
+      margin-bottom: 113px;
+
+      h3:before {
+        background-image: url(../img/about-title-2.png);
+      }
+    }
+
+    h3 {
+      margin-bottom: 40px;
+      letter-spacing: 0.09em;
+      position: relative;
+
+      &::before {
+        content: "";
+        width: 155px;
+        height: 64px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        position: absolute;
+        top: -15px;
+        left: -43px;
+        z-index: -1;
+      }
+    }
+
+    p {
+      line-height: 1.5em;
+
+      &:not(:last-child) {
+        margin-bottom: 16px;
+      }
+    }
+  }
+
+  .btn-scroll {
+    bottom: 3%;
+  }
+}
+
+.hash-img {
+  position: absolute;
+  bottom: 5%;
+  left: 0;
+  max-width: 230px;
+  z-index: 1;
+}
+
+.about-bg {
+  position: absolute;
+  top: 100%;
+  left: 25%;
+  transform: rotate(-51deg);
+  transform-origin: top left;
+  z-index: 1;
+  height: 1189px;
+}
+
+.utility {
+  padding: 150px 0 190px;
+  background-image: url(../img/utility-bg.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom left;
+
+  &::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-image: url(../img/hero-grid.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 1240px;
+  }
+
+  &__content {
+    max-width: 765px;
+    margin-right: 0;
+    margin-left: auto;
+    font-size: 24px;
+
+    h3 {
+      position: relative;
+      margin-bottom: 38px;
+      letter-spacing: 0.04em;
+
+      &::before {
+        content: "";
+        width: 98px;
+        height: 94px;
+        position: absolute;
+        bottom: -5px;
+        left: -40px;
+        background-image: url(../img/snow.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        z-index: -1;
+      }
+    }
+
+    p {
+      line-height: 1.5em;
+    }
+  }
+
+  &__title {
+    max-width: 800px;
+    position: relative;
+    right: -95px;
+    top: -20px;
+    margin-bottom: 23px;
+  }
+
+  &__img {
+    position: absolute;
+    left: -80px;
+    max-width: 43%;
+    width: 50%;
+    top: 60%;
+    transform: translate(0, -50%);
+
+    &::before {
+      content: "";
+      width: 100%;
+      height: 100%;
+      background-image: url(../img/baby-ellipse.png);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+  }
+
+  &-crown {
+    position: absolute;
+    bottom: 65px;
+    right: 94px;
+    width: 143px;
+  }
+
+  &-light {
+    position: absolute;
+
+    &_top {
+      right: 0;
+      top: 0;
+      max-width: 60%;
+    }
+  }
+}
+
+.artists {
+  padding-top: 150px;
+
+  &-list {
+    display: flex;
+    flex-wrap: wrap;
+    height: calc(100vh - 150px);
+
+    &__item {
+      width: 25%;
+      position: relative;
+
+      &::before {
+        content: "";
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba($black, .7);
+        z-index: 1;
+        transition: background-color $hover-duration $timing;
+      }
+
+      &:hover {
+        &::before {
+          // background-color: $gray-400;
+          background-color: rgba($black, .9);
+        }
+
+        .artists-list__title {
+          transform: translate(-50%, -50%) scale(1.2);
+        }
+      }
+    }
+
+    &__bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    &__title {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      max-width: 65%;
+      transform: translate(-50%, -50%) scale(1);
+      z-index: 1;
+      transition: transform $hover-duration $timing;
+    }
+  }
+}
+
+.artist {
+  padding: 150px 0 30px 0;
+
+  &::before,
+  &::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+
+  &::before {
+    top: 0;
+    background-image: url(../img/artist-bg.jpg);
+    background-position: top center;
+    opacity: .4;
+  }
+
+  &::after {
+    background-size: contain;
+    background-image: url(../img/artist-bg.png);
+    background-position: bottom left;
+    bottom: 0;
+    width: 80%;
+  }
+
+  &__title {
+    max-width: 560px;
+    position: relative;
+    top: -40px;
+    left: -40px;
+    margin-bottom: -10px;
+
+    @include d(1199) {
+      margin-bottom: 0;
+      top: 0;
+      left: 0;
+    }
+  }
+
+  &__content {
+    max-width: 925px;
+    font-size: 24px;
+    padding-left: 13px;
+
+    @include d(1199) {
+      padding-left: 0;
+    }
+
+    p {
+      margin-bottom: 16px;
+      line-height: 1.5em;
+    }
+  }
+
+  &__img {
+    position: absolute;
+    bottom: 0;
+    right: 52px;
+    width: 21%;
+  }
+
+  &-social {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    position: absolute;
+    right: 15px;
+    top: 40px;
+
+    &__link {
+      width: 70px;
+      height: 70px;
+      padding: 17px;
+
+      &:hover {
+        .svg-social {
+          fill: $pinkDark;
+        }
+      }
+    }
+  }
+
+  &-light {
+    position: absolute;
+
+    &_top {
+      left: 0;
+      top: 0;
+      max-width: 60%;
+    }
+
+    &_bottom {
+      bottom: 0;
+      right: 0;
+      max-width: 50%;
+
+      &-left {
+        bottom: 0;
+        left: 0;
+      }
+    }
+  }
+}
+
+.svg-social {
+  fill: $white;
+  width: 100%;
+  height: 100%;
+  transition: fill $hover-duration $timing;
+}
