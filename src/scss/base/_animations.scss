@@ -1,0 +1,33 @@
+// classes for animation
+@import "../base/variables";
+@import "../base/mixins";
+
+.js-show {
+  transform: translate(0, 0) rotate(0);
+  opacity: 1;
+  transition: transform .8s cubic-bezier(0.6, 0, 0.41, 1), opacity .8s cubic-bezier(0.6, 0, 0.41, 1);
+}
+
+.js-fadeIn {
+  opacity: 0;
+}
+
+.js-slideRight {
+  opacity: 0;
+  transform: translate(30px, 0);
+}
+
+.js-slideLeft {
+  opacity: 0;
+  transform: translate(-30px, 0);
+}
+
+.js-slideTop {
+  opacity: 0;
+  transform: translate(0, 30px);
+}
+
+.js-slideDown {
+  opacity: 0;
+  transform: translate(0, -30px);
+}

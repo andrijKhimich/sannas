@@ -1,0 +1,30 @@
+@import "base/mixins";
+@import "base/variables";
+
+// libs using in project, uncomment what you need
+// @import "../../node_modules/normalize.css/normalize.css";
+// @import "../../node_modules/bootstrap-4-grid/css/grid.min.css";
+
+// @import "../../node_modules/odometer/sass/odometer-theme-default"
+// @import "../../node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.css"
+
+// @import "../../node_modules/odometer/themes/odometer-theme-default.css"
+
+
+// @import "../libs/bootstrap4/dist/css/bootstrap.min.css"
+// @import "../libs/bootstrap-4.6.0/scss/bootstrap.scss"
+
+
+// base styles for project
+@import "base/fonts";
+@import "base/base";
+@import "base/animations";
+
+// project components
+@import "components/header";
+@import "components/footer";
+@import "components/modal";
+@import "components/slick";
+
+// project pages
+@import "pages/index";

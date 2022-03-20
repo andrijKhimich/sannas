@@ -1,0 +1,29 @@
+.header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  max-width: 100px;
+  display: inline-block;
+}
+
+.nav {
+  &-list {
+    display: flex;
+    align-items: center;
+
+    &__item,
+    li {
+      &:not(:last-child) {
+        margin-right: 30px;
+      }
+    }
+
+    &__link,
+    a {
+      padding: 10px 15px;
+    }
+  }
+}
