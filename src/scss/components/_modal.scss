@@ -1,0 +1,148 @@
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 80vh;
+  // background-color: #fff;
+  z-index: 10;
+  display: flex;
+
+  align-items: center;
+
+  &-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba($black, .9);
+    width: 100vw;
+    height: 100vh;
+    z-index: 10;
+  }
+
+  &__img {
+    width: 50%;
+    width: 441px;
+    margin-right: 140px;
+    position: relative;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      width: 100%;
+    }
+
+    &::before {
+      right: -90px;
+      bottom: 94%;
+      background-image: url(../img/frame-modal-top.png);
+      background-position: right;
+      height: 90px;
+    }
+
+    &::after {
+      left: -50px;
+      top: 94%;
+      background-image: url(../img/frame-modal-bottom.png);
+      background-position: left;
+      height: 60px;
+    }
+  }
+
+  &__range {
+    width: 50%;
+  }
+
+  &__logo {
+    width: 221px;
+    margin: 0 auto;
+    position: relative;
+    margin-bottom: 40px;
+
+    &::before {
+      content: "";
+      width: 120%;
+      height: 100%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-image: url(../img/logo-line.png);
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      z-index: -1;
+    }
+  }
+
+  &-row {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.range {
+  &-form {
+    max-width: 450px;
+    margin: 0 auto;
+  }
+
+  &-numbers {
+    text-align: center;
+    margin-bottom: 40px;
+
+    span {
+      font-size: 27px;
+      line-height: 1.5em;
+    }
+  }
+
+  &-total {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+
+    &__text {
+      font-size: 16px;
+    }
+
+    &__value {
+      font-size: 35px;
+      color: $yellow-100;
+      font-weight: 900;
+
+      span {
+        color: $white;
+      }
+    }
+  }
+
+}
+
+.close {
+  width: 52px;
+  height: 48px;
+  border-radius: 10px;
+  background-color: rgba($white, .1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  cursor: pointer;
+
+  svg {
+    fill: $yellow-100;
+    width: 18px;
+    height: 18px;
+  }
+}
