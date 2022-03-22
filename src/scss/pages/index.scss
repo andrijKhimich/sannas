@@ -1,5 +1,19 @@
 .hero {
   padding: 160px 0 70px 0;
+  display: flex;
+
+  @include d(1366) {
+    padding: 107px 0 50px 0;
+  }
+
+  @include d(1024) {
+    padding: 73px 0;
+  }
+
+  @include d(991) {
+    padding: 73px 0 0 0;
+    display: block;
+  }
 
   &::before {
     content: "";
@@ -14,17 +28,38 @@
     left: 50%;
     transform: translate(-50%, -50%);
     max-width: 1240px;
+    z-index: -1;
+
+    @include d(1366) {
+      max-width: 80%;
+    }
   }
 
   &__text {
     max-width: 445px;
     font-size: 17px;
     position: relative;
-    z-index: 1;
+    z-index: 2;
+
+    @include d(1024) {
+      font-size: 16px;
+    }
+
+    @include d(991) {
+      max-width: 100%;
+    }
 
     img {
       max-width: 385px;
       margin-bottom: 26px;
+
+      @include d(1366) {
+        max-width: 260px;
+      }
+
+      @include d(1024) {
+        max-width: 200px;
+      }
     }
 
     p {
@@ -33,6 +68,10 @@
 
       &:last-of-type {
         margin-bottom: 45px;
+
+        @include d(1024) {
+          margin-bottom: 30px;
+        }
       }
     }
   }
@@ -42,6 +81,21 @@
     bottom: 0;
     right: 0;
     width: 71%;
+    z-index: 1;
+
+    @include d(1024) {
+      max-width: 65%;
+    }
+
+    @include d(991) {
+      max-width: 100%;
+      position: static;
+      margin: 0 0 0 auto;
+    }
+
+    @include d(768) {
+      width: 100%;
+    }
   }
 
   &-light {
@@ -64,6 +118,14 @@
 .about {
   padding: 150px 0 80px;
 
+  @include d(1366) {
+    padding: 107px 0 80px;
+  }
+
+  @include d(1024) {
+    padding: 73px 0;
+  }
+
   &::before,
   &::after {
     content: "";
@@ -78,6 +140,10 @@
     left: 50%;
     z-index: 0;
     opacity: .4;
+
+    @include d(1366) {
+      max-width: 80%;
+    }
   }
 
   &::before {
@@ -120,6 +186,11 @@
     left: 0;
     top: 190px;
     z-index: 0;
+
+    @include d(1024) {
+      top: 60px;
+      width: 80%;
+    }
   }
 
   &__content {
@@ -129,9 +200,15 @@
     margin-top: -50px;
     position: relative;
     z-index: 1;
-
+    @include d(991) {
+      margin-top: 0;
+    }
     h2 {
       margin-bottom: 65px;
+
+      @include d(1024) {
+        margin-bottom: 30px;
+      }
     }
 
     img {
@@ -139,6 +216,17 @@
       position: relative;
       top: 0;
       right: -320px;
+
+      @include d(1366) {
+        max-width: 780px;
+      }
+
+      @include d(1199) {
+        max-width: 66%;
+        right: 0;
+        margin-left: auto;
+        margin-right: 0;
+      }
     }
   }
 
@@ -148,8 +236,20 @@
     font-size: 24px;
     margin-bottom: 122px;
 
+    @include d(1366) {
+      font-size: 20px;
+    }
+
+    @include d(1024) {
+      margin-bottom: 60px;
+    }
+
     &:first-of-type {
       max-width: 770px;
+
+      @include d(1024) {
+        max-width: 100%;
+      }
 
       h3:before {
         background-image: url(../img/about-title-1.png);
@@ -160,6 +260,14 @@
       max-width: 924px;
       margin-bottom: 113px;
 
+      @include d(1024) {
+        max-width: 100%;
+      }
+
+      @include d(1024) {
+        margin-bottom: 60px;
+      }
+
       h3:before {
         background-image: url(../img/about-title-2.png);
       }
@@ -169,6 +277,10 @@
       margin-bottom: 40px;
       letter-spacing: 0.09em;
       position: relative;
+
+      @include d(1024) {
+        margin-bottom: 20px;
+      }
 
       &::before {
         content: "";
@@ -223,6 +335,16 @@
   background-repeat: no-repeat;
   background-position: bottom left;
 
+  @include d(1366) {
+    padding: 107px 0 100px;
+  }
+
+  @include d(1024) {
+    padding: 73px 0;
+  }
+  @include d(768) {
+    padding: 73px 0 0 0;
+  }
   &::before {
     content: "";
     width: 100%;
@@ -236,6 +358,10 @@
     left: 50%;
     transform: translate(-50%, -50%);
     max-width: 1240px;
+
+    @include d(1366) {
+      max-width: 80%;
+    }
   }
 
   &__content {
@@ -243,11 +369,29 @@
     margin-right: 0;
     margin-left: auto;
     font-size: 24px;
+    position: relative;
+    z-index: 1;
+
+    @include d(1366) {
+      font-size: 20px;
+    }
+
+    @include d(1024) {
+      font-size: 18px;
+    }
+
+    @include d(991) {
+      max-width: 100%;
+    }
 
     h3 {
       position: relative;
       margin-bottom: 38px;
       letter-spacing: 0.04em;
+
+      @include d(1280) {
+        margin-bottom: 20px;
+      }
 
       &::before {
         content: "";
@@ -275,6 +419,23 @@
     right: -95px;
     top: -20px;
     margin-bottom: 23px;
+
+    @include d(1366) {
+      max-width: 600px;
+      right: 0;
+      top: 0;
+      margin-right: 0;
+      margin-left: auto;
+    }
+
+    @include d(991) {
+      max-width: 60%;
+    }
+
+    @include d(600) {
+      max-width: 300px;
+      margin: 0 auto 30px auto;
+    }
   }
 
   &__img {
@@ -284,6 +445,18 @@
     width: 50%;
     top: 60%;
     transform: translate(0, -50%);
+
+    @include d(1024) {
+      top: -40px;
+      transform: translate(0, 0);
+    }
+
+    @include d(768) {
+      position: static;
+      top: 0;
+      max-width: 100%;
+      width: 100%;
+    }
 
     &::before {
       content: "";
@@ -321,14 +494,48 @@
 .artists {
   padding-top: 150px;
 
+  @include d(1366) {
+    padding-top: 107px;
+  }
+
+  @include d(1024) {
+    padding-top: 73px;
+  }
+
   &-list {
     display: flex;
     flex-wrap: wrap;
     height: calc(100vh - 150px);
 
+    @include d(1366) {
+      height: calc(100vh - 107px);
+    }
+
+    @include d(1024) {
+      height: calc(100vh - 73px);
+    }
+
+    @include d(768) {
+      height: auto;
+    }
+
     &__item {
       width: 25%;
+
+      @include d(768) {
+        width: 50%;
+      }
+
+      @include d(768) {
+        width: 50%;
+        height: 50vw;
+      }
+    }
+
+    &__link {
       position: relative;
+      width: 100%;
+      height: 100%;
 
       &::before {
         content: "";
@@ -337,21 +544,25 @@
         position: absolute;
         top: 0;
         left: 0;
-        background-color: rgba($black, .7);
+        background-color: rgba($black, .4);
         z-index: 1;
         transition: background-color $hover-duration $timing;
       }
 
       &:hover {
-        &::before {
-          // background-color: $gray-400;
-          background-color: rgba($black, .9);
+        // &::before {
+        // background-color: rgba($black, 0);
+        // }
+
+        .artists-list__bg {
+          filter: grayscale(0);
         }
 
         .artists-list__title {
           transform: translate(-50%, -50%) scale(1.2);
         }
       }
+
     }
 
     &__bg {
@@ -361,6 +572,8 @@
       height: 100%;
       width: 100%;
       object-fit: cover;
+      filter: grayscale(1);
+      transition: filter $hover-duration $timing
     }
 
     &__title {
@@ -371,12 +584,21 @@
       transform: translate(-50%, -50%) scale(1);
       z-index: 1;
       transition: transform $hover-duration $timing;
+
     }
   }
 }
 
 .artist {
   padding: 150px 0 30px 0;
+
+  @include d(1366) {
+    padding: 107px 0 80px 0;
+  }
+
+  @include d(1024) {
+    padding: 73px 0;
+  }
 
   &::before,
   &::after {
@@ -412,10 +634,24 @@
     left: -40px;
     margin-bottom: -10px;
 
+    @include d(1366) {
+      max-width: 500px;
+      left: 0;
+    }
+
     @include d(1199) {
       margin-bottom: 0;
       top: 0;
       left: 0;
+    }
+
+    @include d(991) {
+      max-width: 50%;
+      margin-bottom: 30px;
+    }
+
+    @include d(600) {
+      max-width: 80%;
     }
   }
 
@@ -423,9 +659,25 @@
     max-width: 925px;
     font-size: 24px;
     padding-left: 13px;
+    position: relative;
+    z-index: 1;
+
+    @include d(1366) {
+      font-size: 20px;
+      max-width: 800px;
+    }
 
     @include d(1199) {
       padding-left: 0;
+    }
+
+    @include d(1024) {
+      font-size: 18px;
+      max-width: 80%;
+    }
+
+    @include d(991) {
+      max-width: 100%;
     }
 
     p {
@@ -439,6 +691,14 @@
     bottom: 0;
     right: 52px;
     width: 21%;
+
+    @include d(1024) {
+      right: 0;
+    }
+
+    @include d(991) {
+      display: none;
+    }
   }
 
   &-social {
@@ -449,10 +709,17 @@
     right: 15px;
     top: 40px;
     z-index: 1;
+
     &__link {
       width: 70px;
       height: 70px;
       padding: 17px;
+
+      @include d(1024) {
+        width: 40px;
+        height: 40px;
+        padding: 5px;
+      }
 
       &:hover {
         .svg-social {
@@ -498,6 +765,18 @@
   background-repeat: no-repeat;
   background-position: center;
 
+  @include d(1366) {
+    padding: 107px 0 0 0;
+  }
+
+  @include d(1024) {
+    padding: 73px 0 0 0;
+  }
+
+  @include d(991) {
+    padding: 73px 0;
+  }
+
   &::before,
   &::after {
     content: "";
@@ -512,6 +791,10 @@
     left: 50%;
     z-index: 0;
     opacity: .4;
+
+    @include d(1366) {
+      max-width: 80%;
+    }
   }
 
   &::before {
@@ -547,6 +830,21 @@
     margin-left: auto;
     top: -36px;
     margin-bottom: 13px;
+    z-index: 1;
+
+    @include d(1366) {
+      max-width: 610px;
+    }
+
+    @include d(1024) {
+      max-width: 50%;
+      margin: 0 auto;
+      top: 0;
+    }
+
+    @include d(600) {
+      max-width: 80%;
+    }
   }
 
   &-list {
@@ -555,6 +853,12 @@
     justify-content: space-between;
     position: relative;
     z-index: 1;
+
+    @include d(768) {
+      justify-content: space-around;
+
+    }
+
     &__item {
       max-width: 295px;
       padding: 0 10px;
@@ -562,15 +866,31 @@
       margin-bottom: 80px;
       position: relative;
 
+      @include d(768) {
+        width: 50%;
+      }
+
+      @include d(480) {
+        width: 100%;
+      }
+
       &:first-child,
       &:nth-child(5),
       &:nth-child(9) {
         top: -220px;
+
+        @include d(768) {
+          top: 0;
+        }
       }
 
       &:nth-child(2),
       &:nth-child(6) {
         top: -130px;
+
+        @include d(768) {
+          top: 0;
+        }
       }
 
       &::before {
@@ -604,6 +924,10 @@
         font-size: 32px;
         line-height: .8em;
         font-weight: 900;
+
+        @include d(1366) {
+          font-size: 28px;
+        }
       }
 
       p {
@@ -625,10 +949,21 @@
   align-items: center;
   justify-content: space-between;
   margin-top: -340px;
+  position: relative;
+  z-index: 1;
+
+  @include d(768) {
+    margin-top: 0;
+    display: block;
+  }
 
   &__content {
     width: 50%;
     text-align: center;
+
+    @include d(768) {
+      width: 100%;
+    }
   }
 
   &__title {
@@ -636,6 +971,22 @@
     left: -140px;
     width: 110%;
     margin-bottom: 35px;
+
+    @include d(1366) {
+      left: 0;
+      width: 100%;
+      max-width: 540px;
+    }
+
+    @include d(768) {
+      width: 60%;
+      margin: 0 auto 30px auto;
+    }
+
+    @include d(600) {
+      width: 100%;
+      max-width: 80%;
+    }
   }
 
   &-list {
@@ -645,6 +996,11 @@
     width: 50%;
     margin-top: 60px;
 
+    @include d(991) {
+      width: 100%;
+      justify-content: space-around;
+    }
+
     &__item {
       max-width: 295px;
       padding: 0 10px;
@@ -652,8 +1008,21 @@
       margin-bottom: 100px;
       position: relative;
 
+      @include d(991) {
+        margin-bottom: 60px;
+      }
+
+      @include d(480) {
+        width: 100%;
+        margin-bottom: 80px;
+      }
+
       &:first-child {
         top: 150px;
+
+        @include d(991) {
+          top: 0;
+        }
       }
 
       &::before {
@@ -664,6 +1033,10 @@
         bottom: 0;
         left: 0;
         background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
+
+        @include d(991) {
+          display: none;
+        }
       }
 
       &>img {
@@ -685,6 +1058,10 @@
         font-size: 32px;
         line-height: .8em;
         font-weight: 900;
+
+        @include d(1366) {
+          font-size: 28px;
+        }
       }
 
       p {
@@ -706,7 +1083,20 @@
   background-image: url(../img/traits-text-bg.png);
   background-size: contain;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: bottom;
+  display: flex;
+
+  @include d(1366) {
+    padding: 107px 0 40px 0;
+  }
+
+  @include d(1024) {
+    padding: 73px 0 40px 0;
+  }
+
+  @include d(991) {
+    padding: 73px 0;
+  }
 
   &::before {
     content: "";
@@ -725,6 +1115,10 @@
     transform: translate(-50%, -50%);
     background-position: center;
     opacity: .4;
+
+    @include d(1366) {
+      max-width: 80%;
+    }
   }
 
   &-light {
@@ -748,11 +1142,39 @@
     top: -60px;
     left: -90px;
     position: relative;
+
+    @include d(1366) {
+      top: 0;
+      left: 0;
+    }
+
+    @include d(991) {
+      width: 100%;
+    }
   }
 
   &__title {
     width: 106%;
     margin-bottom: 115px;
+
+    @include d(1366) {
+      width: 100%;
+      max-width: 500px;
+    }
+
+    @include d(991) {
+      margin-bottom: 70px;
+      max-width: 50%;
+
+    }
+
+    @include d(768) {
+      margin: 0 auto 70px auto;
+    }
+
+    @include d(600) {
+      max-width: 80%;
+    }
   }
 
   &__img {
@@ -760,12 +1182,36 @@
     position: relative;
     right: -85px;
 
+    @include d(1366) {
+      right: 0;
+    }
+
+    @include d(991) {
+      margin: 0 auto;
+      width: 100%;
+    }
+
     img {
       width: 450px;
       height: 450px;
       position: relative;
       left: 50%;
       transform: translate(-50%, 0);
+
+      @include d(1366) {
+        width: 380px;
+        height: 380px;
+      }
+
+      @include d(600) {
+        width: 300px;
+        height: 300px;
+      }
+
+      @include d(480) {
+        width: 240px;
+        height: 240px;
+      }
     }
 
     &::before,
@@ -779,16 +1225,38 @@
       background-repeat: no-repeat;
       background-position: center;
       z-index: 1;
+
+      @include d(1366) {
+        height: 60px;
+      }
+
+      @include d(768) {
+        width: 120%;
+        transform: translate(-50%, 0);
+        left: 50%;
+      }
+
+      @include d(600) {
+        width: 100%;
+      }
     }
 
     &::before {
       bottom: 90%;
       background-image: url(../img/frame-top.png);
+
+      @include d(600) {
+        bottom: 85%;
+      }
     }
 
     &::after {
       top: 92%;
       background-image: url(../img/frame-bottom.png);
+
+      @include d(600) {
+        top: 90%;
+      }
     }
   }
 
@@ -799,6 +1267,16 @@
     padding-left: 90px;
     width: 110%;
     margin: 0 -10px;
+
+    @include d(991) {
+      width: 100%;
+      padding-left: 0;
+    }
+
+    @include d(768) {
+      justify-content: space-around;
+
+    }
 
     &__item {
       padding: 0 10px;
@@ -811,16 +1289,43 @@
       color: $gray-300;
       white-space: nowrap;
 
+      @include d(1199) {
+        font-size: 18px;
+        width: 115px;
+      }
+
+      @include d(1100) {
+        width: 25%;
+      }
+
+      @include d(768) {
+        text-align: center;
+      }
+
+      @include d(480) {
+        width: 50%;
+      }
+
+      @include d(340) {
+        width: 100%;
+      }
+
       &:nth-child(3),
       &:nth-child(7),
       &:nth-child(1),
       &:nth-child(5) {
         top: -50px;
+
+        @include d(768) {
+          top: 0;
+        }
       }
 
       &:nth-child(4),
       &:nth-child(8) {
-        top: -100px;
+        @include d(768) {
+          top: 0;
+        }
       }
 
       span {
@@ -829,6 +1334,10 @@
         line-height: 0.8em;
         display: block;
         color: $white;
+
+        @include d(1280) {
+          font-size: 50px;
+        }
       }
     }
   }
@@ -840,6 +1349,19 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+
+  @include d(1366) {
+    padding: 107px 0;
+  }
+
+  @include d(991) {
+    padding: 73px 0 100px 0;
+  }
+
+  @include d(600) {
+    padding: 73px 0 140px 0;
+
+  }
 
   &::before {
     content: "";
@@ -855,6 +1377,10 @@
     transform: translate(-50%, 0);
     max-width: 1240px;
     opacity: .6;
+
+    @include d(1366) {
+      max-width: 80%;
+    }
   }
 
   &-light {
@@ -878,6 +1404,14 @@
     max-width: 700px;
     margin: 0 auto 80px auto;
     position: relative;
+
+    @include d(1366) {
+      max-width: 600px;
+    }
+
+    @include d(768) {
+      max-width: 80%;
+    }
   }
 
   &-item {
@@ -885,19 +1419,58 @@
     justify-content: space-between;
     margin-bottom: 90px;
     padding-left: 90px;
+
+    @include d(991) {
+      margin-bottom: 60px;
+      padding-left: 0;
+    }
+
+    @include d(768) {
+      display: block;
+    }
+
     &:last-child {
       margin-bottom: 120px;
     }
-    img {
-      max-width: 140px;
-      margin: 0 auto 23px auto;
+
+    &__img {
+      @include d(768) {
+        margin-bottom: 20px;
+      }
+
+      img {
+        max-width: 140px;
+        margin: 0 auto 23px auto;
+
+        @include d(991) {
+          margin: 0 auto 15px auto;
+        }
+
+        @include d(768) {
+          margin: 0 auto 5px auto;
+        }
+      }
     }
+
 
     &__content {
       font-size: 24px;
       font-weight: 500;
       max-width: 650px;
       padding: 0 20px;
+
+      @include d(1366) {
+        font-size: 20px;
+      }
+
+      @include d(1024) {
+        font-size: 18px;
+      }
+
+      @include d(768) {
+        margin: 0 auto 20px auto;
+        padding: 0;
+      }
 
       p {
         line-height: 1.5em;
@@ -909,8 +1482,12 @@
       position: relative;
       right: -60px;
 
-      @include d(1280) {
+      @include d(1366) {
         right: 0;
+      }
+
+      @include d(768) {
+        text-align: center;
       }
     }
   }
@@ -921,6 +1498,7 @@
     justify-content: center;
     position: relative;
     z-index: 1;
+
     &__link {
       width: 40px;
       height: 40px;
@@ -935,22 +1513,52 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    @include d(600) {
+      flex-direction: column;
+    }
+
   }
 
   h3 {
     font-size: 50px;
     margin-bottom: 40px;
+
+    @include d(1366) {
+      font-size: 40px;
+    }
+
+    @include d(1280) {
+      font-size: 34px;
+    }
+
+    @include d(600) {
+      font-size: 28px;
+      text-align: center;
+    }
   }
 
   &-list {
     display: flex;
     align-items: center;
 
+    @include d(991) {
+      margin-bottom: 40px;
+    }
+
     &__item {
       position: relative;
 
       &:not(:last-child) {
         margin-right: 110px;
+
+        @include d(991) {
+          margin-right: 80px;
+        }
+
+        @include d(768) {
+          margin-right: 40px;
+        }
 
         &::before {
           content: "";
@@ -961,6 +1569,15 @@
           right: -70px;
           top: 50%;
           transform: translate(-50%, -50%);
+
+          @include d(991) {
+            height: 30px;
+            right: -40px;
+          }
+
+          @include d(768) {
+            right: -20px;
+          }
         }
       }
     }
@@ -969,14 +1586,16 @@
       font-size: 32px;
       position: relative;
 
-      &::before {
-        content: "";
-        width: 100%;
-        height: 2px;
-        background-color: $white;
-        position: absolute;
-        top: 55%;
-        left: 0;
+      @include d(1366) {
+        font-size: 28px;
+      }
+
+      @include d(1024) {
+        font-size: 22px;
+      }
+
+      @include d(991) {
+        font-size: 18px;
       }
     }
   }

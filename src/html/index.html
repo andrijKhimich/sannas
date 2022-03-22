@@ -7,10 +7,10 @@
 </head>
 
 <body>
-  <div class="main-wrapper">
+  <div class="main-wrapper js-fadeIn">
     @@include('components/_header.html')
     <main class="main">
-      <section class="section hero">
+      <section class="section hero js-hero" id="sectionHero">
         <img src="./img/hero-top.png" alt="top" class="hero-light hero-light_top">
         <img src="./img/hero-bottom.png" alt="bottom" class="hero-light hero-light_bottom">
         <div class="container">
@@ -31,18 +31,18 @@
               </p>
               <p>SANNAS will mint at 0.03 ETH publicly on 03/31, preceded by a 48-72 hour WL mint window for SICKO
                 holders, our collaborators’ communities, and a handful of additional projects’ collectors.</p>
-              <button class="btn btn_pink">mint</button>
+              <a href="#modalRange" class="btn btn_pink" data-fancybox>mint</a>
             </div>
           </div>
         </div>
         <div class="hero__img">
           <img src="./img/hero.png" alt="hero image">
         </div>
-        <a href="#" class="btn-scroll">
+        <a href="#sectionAbout" class="btn-scroll">
           Scroll down
         </a>
       </section>
-      <section class="section about">
+      <section class="section about" id="sectionAbout">
         <img src="./img/about-top.png" alt="top" class="about-light about-light_top">
         <img src="./img/about-middle.png" alt="middle" class="about-light about-light_middle">
         <img src="./img/about-bottom.png" alt="bottom" class="about-light about-light_bottom">
@@ -84,11 +84,11 @@
             </div>
           </div>
         </div>
-        <a href="#" class="btn-scroll">
+        <a href="#sectionUtility" class="btn-scroll">
           Scroll down
         </a>
       </section>
-      <section class="section utility">
+      <section class="section utility" id="sectionUtility">
         <img src="./img/utility-top.png" alt="top" class="utility-light utility-light_top">
         <img src="./img/crown.png" alt="crown" class="utility-crown">
         <div class="container">
@@ -108,50 +108,66 @@
         <div class="utility__img">
           <img src="./img/utility-img.png" alt="utility image">
         </div>
-        <a href="#" class="btn-scroll">
+        <a href="#sectionArtists" class="btn-scroll">
           Scroll down
         </a>
       </section>
-      <section class="section artists">
+      <section class="section artists" id="sectionArtists">
         <ul class="artists-list">
           <li class="artists-list__item">
-            <img src="./img/artist-img-1.jpg" alt="kizzie" class="artists-list__bg">
-            <img src="./img/artist-title-1.png" alt="kizzie" class="artists-list__title">
+            <a data-fancybox href="#modal-1" class="artists-list__link">
+              <img src="./img/artist-img-1.jpg" alt="kizzie" class="artists-list__bg">
+              <img src="./img/artist-title-1.png" alt="kizzie" class="artists-list__title">
+            </a>
           </li>
           <li class="artists-list__item">
-            <img src="./img/artist-img-2.jpg" alt="guest" class="artists-list__bg">
-            <img src="./img/artist-title-2.png" alt="guest" class="artists-list__title">
+            <a data-fancybox href="#modal-2" class="artists-list__link">
+              <img src="./img/artist-img-2.jpg" alt="guest" class="artists-list__bg">
+              <img src="./img/artist-title-2.png" alt="guest" class="artists-list__title">
+            </a>
           </li>
           <li class="artists-list__item">
-            <img src="./img/artist-img-3.jpg" alt="petek" class="artists-list__bg">
-            <img src="./img/artist-title-3.png" alt="petek" class="artists-list__title">
+            <a data-fancybox href="#modal-3" class="artists-list__link">
+              <img src="./img/artist-img-3.jpg" alt="petek" class="artists-list__bg">
+              <img src="./img/artist-title-3.png" alt="petek" class="artists-list__title">
+            </a>
           </li>
           <li class="artists-list__item">
-            <img src="./img/artist-img-4.jpg" alt="juli" class="artists-list__bg">
-            <img src="./img/artist-title-4.png" alt="juli" class="artists-list__title">
+            <a data-fancybox href="#modal-4" class="artists-list__link">
+              <img src="./img/artist-img-4.jpg" alt="juli" class="artists-list__bg">
+              <img src="./img/artist-title-4.png" alt="juli" class="artists-list__title">
+            </a>
           </li>
           <li class="artists-list__item">
-            <img src="./img/artist-img-5.jpg" alt="eleanor" class="artists-list__bg">
-            <img src="./img/artist-title-5.png" alt="eleanor" class="artists-list__title">
+            <a data-fancybox href="#modal-5" class="artists-list__link">
+              <img src="./img/artist-img-5.jpg" alt="eleanor" class="artists-list__bg">
+              <img src="./img/artist-title-5.png" alt="eleanor" class="artists-list__title">
+            </a>
           </li>
           <li class="artists-list__item">
-            <img src="./img/artist-img-6.jpg" alt="weanika" class="artists-list__bg">
-            <img src="./img/artist-title-6.png" alt="weanika" class="artists-list__title">
+            <a data-fancybox href="#modal-6" class="artists-list__link">
+              <img src="./img/artist-img-6.jpg" alt="weanika" class="artists-list__bg">
+              <img src="./img/artist-title-6.png" alt="weanika" class="artists-list__title">
+            </a>
           </li>
           <li class="artists-list__item">
-            <img src="./img/artist-img-7.jpg" alt="vrerror" class="artists-list__bg">
-            <img src="./img/artist-title-7.png" alt="vrerror" class="artists-list__title">
+            <a data-fancybox href="#modal-7" class="artists-list__link">
+              <img src="./img/artist-img-7.jpg" alt="vrerror" class="artists-list__bg">
+              <img src="./img/artist-title-7.png" alt="vrerror" class="artists-list__title">
+            </a>
           </li>
           <li class="artists-list__item">
-            <img src="./img/artist-img-8.jpg" alt="tasya" class="artists-list__bg">
-            <img src="./img/artist-title-8.png" alt="tasya" class="artists-list__title">
+            <a data-fancybox href="#modal-8" class="artists-list__link">
+              <img src="./img/artist-img-8.jpg" alt="tasya" class="artists-list__bg">
+              <img src="./img/artist-title-8.png" alt="tasya" class="artists-list__title">
+            </a>
           </li>
         </ul>
-        <a href="#" class="btn-scroll">
+        <a href="#sectionArtist" class="btn-scroll">
           Scroll down
         </a>
       </section>
-      <section class="section artist">
+      <section class="section artist" id="sectionArtist">
         <img src="./img/artist-top.png" alt="top" class="artist-light artist-light_top">
         <img src="./img/artist-bottom.png" alt="bottom" class="artist-light artist-light_bottom">
         <img src="./img/artist-bottom-left.png" alt="left" class="artist-light artist-light_bottom-left">
@@ -192,11 +208,11 @@
         <div class="artist__img">
           <img src="./img/artist-img.png" alt="artist">
         </div>
-        <a href="#" class="btn-scroll">
+        <a href="#sectionTeam" class="btn-scroll">
           Scroll down
         </a>
       </section>
-      <section class="section team">
+      <section class="section team" id="sectionTeam">
         <img src="./img/team-top.png" alt="top" class="team-light team-light_top">
         <img src="./img/team-bottom.png" alt="bottom" class="team-light team-light_bottom">
         <div class="container">
@@ -312,11 +328,11 @@
             </ul>
           </div>
         </div>
-        <a href="#" class="btn-scroll">
+        <a href="#sectionTraits" class="btn-scroll">
           Scroll down
         </a>
       </section>
-      <section class="section traits">
+      <section class="section traits" id="sectionTraits">
         <img src="./img/traits-top.png" alt="top" class="traits-light traits-light_top">
         <img src="./img/traits-bottom.png" alt="bottom" class="traits-light traits-light_bottom">
         <div class="container">
@@ -365,14 +381,13 @@
             </div>
           </div>
         </div>
-        <a href="#" class="btn-scroll">
+        <a href="#sectionUniverse" class="btn-scroll">
           Scroll down
         </a>
       </section>
-      <section class="section universe">
+      <section class="section universe" id="sectionUniverse">
         <img src="./img/universe-top.png" alt="top" class="universe-light universe-light_top">
         <img src="./img/universe-bottom.png" alt="bottom" class="universe-light universe-light_bottom">
-
         <div class="container">
           <h2 class="universe__title">
             <img src="./img/universe-title.png" alt="universe title">
@@ -450,7 +465,7 @@
                 <li class="shape-list__item"><a href="#" class="shape-list__link">Medium</a></li>
                 <li class="shape-list__item"><a href="#" class="shape-list__link">Contact</a></li>
               </ul>
-              <a href="#" class="btn btn_to-top">Back to the top</a>
+              <a href="#sectionHero" class="btn btn_to-top">Back to the top</a>
             </div>
           </div>
         </div>

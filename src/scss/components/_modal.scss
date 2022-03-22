@@ -7,9 +7,26 @@
   height: 80vh;
   // background-color: #fff;
   z-index: 10;
-  display: flex;
 
   align-items: center;
+  display: none;
+
+  &.fancybox-content {
+    display: flex !important;
+
+    @include d(991) {
+      display: block !important;
+      padding: 10% 0;
+    }
+  }
+
+  @include d(1024) {
+    width: 100%;
+    min-height: 100vh;
+    overflow: auto;
+  }
+
+
 
   &-overlay {
     position: fixed;
@@ -21,13 +38,21 @@
     width: 100vw;
     height: 100vh;
     z-index: 10;
+    display: none;
   }
 
   &__img {
-    width: 50%;
+    // width: 50%;
     width: 441px;
     margin-right: 140px;
     position: relative;
+
+    @include d(991) {
+      width: 100%;
+      margin-right: 0;
+      max-width: 200px;
+      margin: 0 auto 40px auto;
+    }
 
     &::before,
     &::after {
@@ -45,6 +70,10 @@
       background-image: url(../img/frame-modal-top.png);
       background-position: right;
       height: 90px;
+
+      @include d(991) {
+        height: 50px;
+      }
     }
 
     &::after {
@@ -53,11 +82,19 @@
       background-image: url(../img/frame-modal-bottom.png);
       background-position: left;
       height: 60px;
+
+      @include d(991) {
+        height: 30px;
+      }
     }
   }
 
   &__range {
     width: 50%;
+
+    @include d(991) {
+      width: 100%;
+    }
   }
 
   &__logo {
@@ -65,6 +102,11 @@
     margin: 0 auto;
     position: relative;
     margin-bottom: 40px;
+
+    @include d(991) {
+      width: auto;
+      max-width: 120px;
+    }
 
     &::before {
       content: "";
@@ -85,10 +127,18 @@
   &-row {
     display: flex;
     align-items: center;
+
+    @include d(991) {
+      display: block;
+    }
   }
 
   &__artist {
     width: 50%;
+
+    @include d(991) {
+      margin: 0 auto 20px auto;
+    }
 
     img {
       max-width: 380px;
@@ -101,6 +151,14 @@
     max-width: 600px;
     max-height: 380px;
     overflow: auto;
+    padding-right: 20px;
+    text-align: left;
+
+    @include d(991) {
+      max-width: 100%;
+      width: 100%;
+      margin-bottom: 20px;
+    }
 
     /* width */
     &::-webkit-scrollbar {
@@ -118,8 +176,8 @@
       border-radius: 3px;
     }
 
-    &/* Handle on hover */
-    ::-webkit-scrollbar-thumb:hover {
+    /* Handle on hover */
+    &::-webkit-scrollbar-thumb:hover {
       background: #555;
     }
 
@@ -127,6 +185,14 @@
       font-size: 35px;
       text-transform: uppercase;
       margin-bottom: 20px;
+
+      @include d(991) {
+        font-size: 28px;
+      }
+
+      @include d(768) {
+        font-size: 24px;
+      }
     }
   }
 
@@ -138,19 +204,46 @@
   }
 }
 
+.fancybox-button.fancybox-close-small {
+  display: none;
+}
+
 .range {
+
+  &-count {
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    justify-content: space-between;
+  }
+
   &-form {
     max-width: 450px;
     margin: 0 auto;
+
+    @include d(991) {
+      text-align: center;
+    }
   }
 
   &-numbers {
     text-align: center;
     margin-bottom: 40px;
+    font-size: 18px;
+    font-weight: 900;
+
+    @include d(991) {
+      margin-bottom: 20px;
+    }
 
     span {
       font-size: 27px;
       line-height: 1.5em;
+
+      @include d(991) {
+        font-size: 20px;
+      }
     }
   }
 
@@ -160,6 +253,10 @@
     justify-content: space-between;
     margin-bottom: 40px;
 
+    @include d(991) {
+      margin-bottom: 20px;
+    }
+
     &__text {
       font-size: 16px;
     }
@@ -168,6 +265,10 @@
       font-size: 35px;
       color: $yellow-100;
       font-weight: 900;
+
+      @include d(991) {
+        font-size: 20px;
+      }
 
       span {
         color: $white;
@@ -186,9 +287,17 @@
   align-items: center;
   justify-content: center;
   position: absolute;
-  top: 40px;
-  right: 40px;
+  top: 20px;
+  right: 20px;
   cursor: pointer;
+  z-index: 10;
+
+  @include d(991) {
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 38px;
+  }
 
   svg {
     fill: $yellow-100;

@@ -7,6 +7,10 @@ html {
   font-size: 100%;
   line-height: 1.15; // Correct the line height in all browsers.
   -webkit-text-size-adjust: 100%; // Prevent adjustments of font size after orientation changes in iOS.
+  // scroll-behavior: smooth;
+  // transition: all 2s ease;
+  width: 100%;
+  height: 100%;
 }
 
 body {
@@ -14,6 +18,8 @@ body {
   font-size: 16px;
   font-family: "Futura", Arial, Helvetica, sans-serif;
   color: $white;
+  width: 100%;
+  height: 100%;
   background-color: $black;
   -webkit-font-smoothing: antialiased;
   -webkit-backface-visibility: hidden;
@@ -93,6 +99,10 @@ h3 {
   line-height: 1em;
   font-size: 35px;
   font-weight: 900;
+
+  @include d(991) {
+    font-size: 28px;
+  }
 }
 
 h4 {
@@ -224,6 +234,10 @@ input[type=range] {
   background-color: transparent;
   // overflow: hidden;
   margin-bottom: 50px;
+
+  @include d(991) {
+    margin-bottom: 20px;
+  }
 }
 
 input[type=range]::-webkit-slider-thumb {
@@ -461,11 +475,20 @@ section.section {
   position: relative;
   overflow: hidden;
   min-height: 100vh;
+
+  @include d(991) {
+    min-height: auto;
+  }
 }
 
 .section-row {
   display: flex;
   align-items: center;
+  height: 100%;
+
+  @include d(991) {
+    display: block;
+  }
 }
 
 tr {
@@ -530,25 +553,21 @@ input[type='number'] {
 textarea,
 input {
   &::-webkit-input-placeholder {
-    // font-family: $font-primary;
     font-size: 16px;
     color: $black;
   }
 
   &::-moz-placeholder {
-    // font-family: $font-primary;
     font-size: 16px;
     color: $black;
   }
 
   &:-ms-input-placeholder {
-    // font-family: $font-primary;
     font-size: 16px;
     color: $black;
   }
 
   &::placeholder {
-    // font-family: $font-primary;
     font-size: 16px;
     color: $black;
   }
@@ -561,6 +580,8 @@ input {
 .main-wrapper {
   position: relative;
   overflow: hidden;
+  transition: opacity 1s ease;
+  opacity: 1;
 }
 
 .container {
@@ -569,6 +590,14 @@ input {
   margin: 0 auto;
   padding: 0 15px;
   position: relative;
+
+  @include d(1024) {
+    padding: 0 30px;
+  }
+
+  @include d(768) {
+    padding: 0 15px;
+  }
 }
 
 .main,
@@ -633,6 +662,18 @@ main {
   letter-spacing: 0.05em;
   position: relative;
   cursor: pointer;
+  white-space: nowrap;
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  @include d(1366) {
+    font-size: 18px;
+  }
+
+  @include d(1024) {
+    font-size: 16px;
+    padding: 20px 50px;
+  }
 
   &::before {
     content: "";
@@ -691,6 +732,10 @@ main {
   z-index: 1;
   padding-bottom: 15px;
 
+  @include d(1024) {
+    display: none;
+  }
+
   &::before {
     content: "";
     width: 9px;
@@ -718,4 +763,8 @@ main {
   100% {
     transform: translate3d(0, 100%, 0);
   }
+}
+
+.fixed-body {
+  overflow: hidden;
 }

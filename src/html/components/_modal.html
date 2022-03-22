@@ -1,11 +1,11 @@
-<!-- <div class="modal-overlay"></div> -->
-<!-- <div class="modal">
-  <div class="close">
+<div class="modal-overlay"></div>
+<div class="modal" id="modalRange">
+  <a href="javascript:parent.$.fancybox.close();" class="close">
     <svg>
       <use xlink:href="./img/svg/sprite-svg/sprite.svg#close">
       </use>
     </svg>
-  </div>
+  </a>
   <div class="container">
     <div class="modal-row">
       <div class="modal__img">
@@ -22,11 +22,15 @@
               of
               <span>7777</span>
             </div>
-            <input type="range" min="0" max="100" step="1">
+            <div class="range-count">
+              <p class="start">1</p>
+              <p class="total">20</p>
+            </div>
+            <input type="range" min="1" max="20" step="1" value="1" class="range-input">
             <div class="range-total">
               <p class="range-total__text">Total</p>
               <div class="range-total__value">
-                <span>0.06</span>
+                <span>0.00</span>
                 ETH
               </div>
             </div>
@@ -38,15 +42,15 @@
       </div>
     </div>
   </div>
-</div> -->
+</div>
 
-<!-- <div class="modal">
-  <div class="close">
+<div class="modal" id="modal-1">
+  <a href="javascript:parent.$.fancybox.close();" class="close">
     <svg>
       <use xlink:href="./img/svg/sprite-svg/sprite.svg#close">
       </use>
     </svg>
-  </div>
+  </a>
   <div class="container">
     <div class="modal-row">
       <div class="modal__artist">
@@ -89,4 +93,4 @@
       </div>
     </div>
   </div>
-</div> -->
+</div>

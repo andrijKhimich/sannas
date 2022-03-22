@@ -4,16 +4,29 @@
   position: absolute;
   bottom: 0;
   width: 100%;
+
+  @include d(768) {
+    font-size: 16px;
+  }
+
   &-row {
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    @include d(600) {
+      flex-direction: column;
+    }
   }
+
+
 
   &-list {
     display: flex;
     align-items: center;
-
+    @include d(600) {
+      margin-bottom: 20px;
+    }
     &__item {
       &:not(:last-child) {
         margin-right: 30px;
