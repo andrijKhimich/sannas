@@ -86,6 +86,56 @@
     display: flex;
     align-items: center;
   }
+
+  &__artist {
+    width: 50%;
+
+    img {
+      max-width: 380px;
+      margin: 0 auto 40px auto;
+    }
+  }
+
+  &__text {
+    width: 50%;
+    max-width: 600px;
+    max-height: 380px;
+    overflow: auto;
+
+    /* width */
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+      background: #444;
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+      background: $aqua;
+      border-radius: 3px;
+    }
+
+    &/* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+
+    h3 {
+      font-size: 35px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+  }
+
+  &-social {
+    position: static;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 .range {
