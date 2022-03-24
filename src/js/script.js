@@ -15,10 +15,7 @@ window.onbeforeunload = () => {
 
 document.addEventListener("DOMContentLoaded", () => {
   showContent();
-  if (window.innerWidth > 1024) {
-    // disableScroll();
-  }
-  // disableScroll();
+
   const openMenu = () => {
     burger.classList.add('active');
     menu.classList.add('active');
@@ -60,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const range = document.querySelector(".range-input");
   const rangeOutput = document.querySelector(".start");
   const rangeOutputPrice = document.querySelector(".range-total__value span");
-  const nftPrice = 0.02;
+  const nftPrice = 0.03;
 
   // change value of rage slider
   range.oninput = () => {
