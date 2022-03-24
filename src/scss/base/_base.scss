@@ -30,6 +30,14 @@ body {
   -webkit-text-size-adjust: 100%;
   backface-visibility: hidden;
   text-rendering: geometricPrecision;
+  overflow: hidden;
+
+  @include d(1024) {
+    overflow: auto;
+  }
+  &.fancybox-active {
+    overflow: hidden;
+  }
 }
 
 /* width */
@@ -476,8 +484,23 @@ section.section {
   overflow: hidden;
   min-height: 100vh;
 
-  @include d(991) {
+  // height: auto;
+  @include d(1024) {
     min-height: auto;
+
+  }
+}
+
+.scroll-section {
+  height: 100vh;
+  overflow-y: auto;
+
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: center;
+  @include d(1024) {
+    height: auto;
+    overflow: hidden;
   }
 }
 
@@ -651,6 +674,30 @@ main {
   @extend h6;
 }
 
+@keyframes shake {
+
+  10%,
+  90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%,
+  80% {
+    transform: translate3d(1px, 0, 0);
+  }
+
+  30%,
+  50%,
+  70% {
+    transform: translate3d(-2px, 0, 0);
+  }
+
+  40%,
+  60% {
+    transform: translate3d(2px, 0, 0);
+  }
+}
+
 .btn {
   background-color: transparent;
   padding: 29px 72px;
@@ -665,6 +712,24 @@ main {
   white-space: nowrap;
   background-size: contain;
   background-repeat: no-repeat;
+  transition: transform $hover-duration $timing;
+  &:hover {
+    // animation: shake 0.8s cubic-bezier(.36,.07,.19,.97) both;
+    // transform: translate3d(0, 0, 0);
+    // perspective: 1000px;
+    transform: translate(0, 4px);
+  }
+
+  &_sm {
+    font-size: 18px;
+    padding: 20px 50px;
+    position: relative;
+    z-index: 2;
+
+    @include d(768) {
+      padding: 15px 30px;
+    }
+  }
 
   @include d(1366) {
     font-size: 18px;
@@ -713,7 +778,15 @@ main {
   }
 
   &_to-top {
+    &:hover {
+      &::before {
+        transform: rotate(20deg);
+      }
+    }
+
     &::before {
+      transform: rotate(0);
+      transition: transform $hover-duration $timing;
       background-image: url(../img/top-arrow.png);
     }
   }
@@ -724,13 +797,19 @@ main {
   }
 }
 
-.btn-scroll {
-  position: absolute;
-  bottom: 3%;
-  left: 50%;
-  transform: translate(-50%, 0);
+.btn-scroll__wrapper {
+  text-align: center;
   z-index: 1;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column-reverse;
+  flex: 0 1 100%;
+}
+
+.btn-scroll {
   padding-bottom: 15px;
+  position: relative;
 
   @include d(1024) {
     display: none;
@@ -767,4 +846,48 @@ main {
 
 .fixed-body {
   overflow: hidden;
+}
+
+.link {
+  &_pink {
+    &.active {
+      color: $pink;
+    }
+
+    &-dark {
+      &.active {
+        color: $pinkDark;
+      }
+    }
+  }
+
+  &_light {
+    &.active {
+      color: $yellowLight;
+    }
+  }
+
+  &_white {
+    &.active {
+      color: $white;
+    }
+  }
+
+  &_yellow {
+    &.active {
+      color: $yellow;
+    }
+  }
+
+  &_violet {
+    &.active {
+      color: $violet;
+    }
+  }
+
+  &_blue {
+    &.active {
+      color: $blue;
+    }
+  }
 }

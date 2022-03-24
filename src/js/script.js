@@ -4,71 +4,19 @@ const body = document.querySelector("body");
 const header = document.querySelector(".js-header");
 const heroSection = document.querySelector(".js-hero");
 const heroSectionHeight = heroSection.offsetHeight;
+
 const showContent = () => {
   document.querySelector(".main-wrapper").classList.remove("js-fadeIn");
 }
+
 window.onbeforeunload = () => {
   window.scrollTo(0, 0);
 }
-// console.log(heroSection.offsetHeight);
-// left: 37, up: 38, right: 39, down: 40,
-// spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
-let keys = {
-  37: 1,
-  38: 1,
-  39: 1,
-  40: 1
-};
-
-function preventDefault(e) {
-  e.preventDefault();
-}
-
-function preventDefaultForScrollKeys(e) {
-  if (keys[e.keyCode]) {
-    preventDefault(e);
-    return false;
-  }
-}
-
-// modern Chrome requires { passive: false } when adding event
-let supportsPassive = false;
-try {
-  window.addEventListener("test", null, Object.defineProperty({}, 'passive', {
-    get: function () {
-      supportsPassive = true;
-    }
-  }));
-} catch (e) {}
-
-let wheelOpt = supportsPassive ? {
-  passive: false
-} : false;
-let wheelEvent = 'onwheel' in document.createElement('div') ? 'wheel' : 'mousewheel';
-
-// call this to Disable
-function disableScroll() {
-  window.addEventListener('DOMMouseScroll', preventDefault, false); // older FF
-  window.addEventListener(wheelEvent, preventDefault, wheelOpt); // modern desktop
-  window.addEventListener('touchmove', preventDefault, wheelOpt); // mobile
-  window.addEventListener('keydown', preventDefaultForScrollKeys, false);
-  console.log("disable");
-}
-
-// call this to Enable
-function enableScroll() {
-  window.removeEventListener('DOMMouseScroll', preventDefault, false);
-  window.removeEventListener(wheelEvent, preventDefault, wheelOpt);
-  window.removeEventListener('touchmove', preventDefault, wheelOpt);
-  window.removeEventListener('keydown', preventDefaultForScrollKeys, false);
-  console.log("enable");
-}
-
 
 document.addEventListener("DOMContentLoaded", () => {
   showContent();
   if (window.innerWidth > 1024) {
-    disableScroll();
+    // disableScroll();
   }
   // disableScroll();
   const openMenu = () => {
@@ -92,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 
-  if (window.scrollY > heroSectionHeight - 10) {
+  if (window.scrollY >= 1) {
     header.classList.add('fixed');
   } else {
     header.classList.remove('fixed');
@@ -100,8 +48,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.addEventListener("scroll", () => {
     closeMenu();
-    // console.log(window.scrollY);
-    if (window.scrollY >= heroSectionHeight - 10) {
+    console.log(window.scrollY);
+    if (window.scrollY >= 1) {
       header.classList.add('fixed');
     } else {
       header.classList.remove('fixed');
@@ -119,45 +67,48 @@ document.addEventListener("DOMContentLoaded", () => {
     rangeOutput.innerHTML = range.value;
     rangeOutputPrice.innerHTML = nftPrice * range.value;
   }
-  // scroll spy
-  let section = document.querySelectorAll(".section");
-  let sections = {};
-  let i = 0;
-
-  Array.prototype.forEach.call(section, function (e) {
-    sections[e.id] = e.offsetTop;
-  });
-
-  window.onscroll = function () {
-    let scrollPosition = document.documentElement.scrollTop || document.body.scrollTop;
-
-    for (i in sections) {
-      if (sections[i] <= scrollPosition) {
-        document.querySelector('.nav-list__link.active').classList.remove('active');
-        document.querySelector('.nav-list__link[href*=' + i + ']').classList.add('active');
-      }
-    }
-  };
 
   // jQuery for scrolling
-  $('.nav-list__link[href^="#"], .btn-scroll[href^="#"], .btn_to-top[href^="#"]').on('click', function (e) {
-    // enableScroll();
-    e.preventDefault();
-    $(".nav-list__link").removeClass("active");
-    $(this).addClass("active");
-    $('html, body').animate({
-      scrollTop: $($(this).attr('href')).offset().top
-    }, 1000);
+  var sectionArray = [1, 2, 3, 4, 5, 6, 7, 8];
 
-    // if ($($(this).attr('href')).outerHeight() > $(window).height()) {
-    // console.log($(this));
-    // enableScroll();
-    // }
-    // enableScroll();
+  $.each(sectionArray, function (index, value) {
+
+    $(document).scroll(function () {
+      var offsetSection = $('#' + 'section_' + value).offset().top;
+      var docScroll = $(document).scrollTop();
+      var docScroll1 = docScroll + 1;
+
+
+      if (docScroll1 >= offsetSection) {
+        $('.nav-list li a').removeClass('active');
+        $('.nav-list li a').addClass('inactive');
+        $('.nav-list li a').eq(index).addClass('active');
+        $('.nav-list li a').eq(index).removeClass('inactive');
+      }
+    });
+
+    $('.nav li a').eq(index).click(function (e) {
+      var offsetClick = $('#' + 'section_' + value).offset().top;
+      e.preventDefault();
+      $('html, body').animate({
+        'scrollTop': offsetClick
+      }, 1000)
+    });
   });
 
-  $('.nav-list__link[href^="#"], .btn-scroll[href^="#"], .btn_to-top[href^="#"]').on('click', function (e) {
-    // enableScroll();
+  $(document).ready(function () {
+    $('.nav-list li a:link').addClass('inactive');
+    $('.nav-list li a').eq(0).addClass('active');
+    $('.nav-list li a:link').eq(0).removeClass('inactive');
+
+
+    $(window).on('resize', function () {
+      techSlider();
+      teamSlider();
+    });
+  });
+
+  $('.btn-scroll[href^="#"], .btn_to-top[href^="#"]').on('click', function (e) {
     e.preventDefault();
     $(".nav-list__link").removeClass("active");
     $(this).addClass("active");
@@ -165,10 +116,6 @@ document.addEventListener("DOMContentLoaded", () => {
       scrollTop: $($(this).attr('href')).offset().top
     }, 1000);
 
-    // if ($($(this).attr('href')).outerHeight() > $(window).height()) {
-    // console.log($(this).attr('href'));
-    //   enableScroll();
-    // }
   });
 
   $('.close').click(function () {
@@ -178,33 +125,95 @@ document.addEventListener("DOMContentLoaded", () => {
   const showOnScroll = () => {
     $('.section').each(function () {
       let windowPosMod = $(window).scrollTop() + $(window).height();
-      let sectionPos = $(this).offset().top + $(this).outerHeight();
-      if (sectionPos < windowPosMod) {
+      let sectionPosMod = $(this).offset().top + $(this).outerHeight();
+
+      let sectionPos = $(this).offset().top;
+      let windowPos = $(window).scrollTop() + $(window).height() / 3;
+
+      if (sectionPos < windowPos) {
         $(this).addClass('show');
-        disableScroll();
       }
     });
   }
-  let scrollStart = 0;
   $(window).scroll(function () {
-    // let scrollValue = $(this).scrollTop();
     showOnScroll();
-    let currentScrollPosition = $(this).scrollTop();
-    // console.log(currentScrollPosition);
-    if (currentScrollPosition > scrollStart) {
-      console.log("down");
-    } else {
-      console.log("up");
-    }
-    scrollStart = currentScrollPosition;
   });
-  // const sections = document.querySelectorAll(".section");
-  // console.log(sections);
-  // sections.forEach((section) => { // second parameter always index of element 
-  //   console.log(section.offsetHeight);
 
-  // });
+  teamSlider();
 
+  function teamSlider() {
+    if ($(window).width() < 769 && !$('.team-list.slick-slider')[0]) {
+      var maxWidth = 768;
+      $('.team-list').slick({
+        dots: false,
+        infinite: false,
+        speed: 400,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false,
+        cssEase: ' cubic-bezier(.6, 0, .41, 1)',
+        dots: true,
+        mobileFirst: true,
+        responsive: [{
+            breakpoint: maxWidth,
+            settings: 'unslick'
+          },
+          {
+            breakpoint: 460,
+            settings: {
+              slidesToShow: 1.6
+            }
+          },
+          {
+            breakpoint: 575,
+            settings: {
+              slidesToShow: 2
+            }
+          },
+          {
+            breakpoint: 640,
+            settings: {
+              slidesToShow: 2.6
+            }
+          }
+        ]
+      });
+    }
+  }
+  techSlider();
 
-
+  function techSlider() {
+    if ($(window).width() < 769 && !$('.teach-team-list.slick-slider')[0]) {
+      var maxWidth = 768;
+      $('.tech-team-list').slick({
+        dots: false,
+        infinite: false,
+        centerMode: false,
+        speed: 400,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false,
+        dots: true,
+        cssEase: ' cubic-bezier(.6, 0, .41, 1)',
+        mobileFirst: true,
+        responsive: [{
+            breakpoint: maxWidth,
+            settings: 'unslick'
+          },
+          {
+            breakpoint: 460,
+            settings: {
+              slidesToShow: 1.6
+            }
+          },
+          {
+            breakpoint: 575,
+            settings: {
+              slidesToShow: 2
+            }
+          }
+        ]
+      });
+    }
+  }
 });

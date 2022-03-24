@@ -1,6 +1,7 @@
 .hero {
   padding: 160px 0 70px 0;
   display: flex;
+  flex-flow: column;
 
   @include d(1366) {
     padding: 107px 0 50px 0;
@@ -8,6 +9,7 @@
 
   @include d(1024) {
     padding: 73px 0;
+
   }
 
   @include d(991) {
@@ -42,7 +44,7 @@
     z-index: 2;
 
     @include d(1024) {
-      font-size: 16px;
+      font-size: 18px;
     }
 
     @include d(991) {
@@ -116,10 +118,10 @@
 }
 
 .about {
-  padding: 150px 0 80px;
+  padding: 150px 0 40px;
 
   @include d(1366) {
-    padding: 107px 0 80px;
+    padding: 107px 0 40px;
   }
 
   @include d(1024) {
@@ -175,7 +177,7 @@
       bottom: 0;
       left: 0;
       max-width: 500px;
-      z-index: 1;
+      z-index: 0;
     }
 
   }
@@ -200,9 +202,11 @@
     margin-top: -50px;
     position: relative;
     z-index: 1;
+
     @include d(991) {
       margin-top: 0;
     }
+
     h2 {
       margin-bottom: 65px;
 
@@ -304,10 +308,6 @@
       }
     }
   }
-
-  .btn-scroll {
-    bottom: 3%;
-  }
 }
 
 .hash-img {
@@ -315,7 +315,7 @@
   bottom: 5%;
   left: 0;
   max-width: 230px;
-  z-index: 1;
+  z-index: 0;
 }
 
 .about-bg {
@@ -329,22 +329,30 @@
 }
 
 .utility {
-  padding: 150px 0 190px;
+  padding: 150px 0 40px;
   background-image: url(../img/utility-bg.png);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: bottom left;
+  display: flex;
+  flex-flow: column;
 
   @include d(1366) {
-    padding: 107px 0 100px;
+    padding: 107px 0 40px;
   }
 
   @include d(1024) {
-    padding: 73px 0;
+    padding: 73px 0 60px;
   }
+
+  @include d(991) {
+    display: block;
+  }
+
   @include d(768) {
     padding: 73px 0 0 0;
   }
+
   &::before {
     content: "";
     width: 100%;
@@ -454,8 +462,12 @@
     @include d(768) {
       position: static;
       top: 0;
-      max-width: 100%;
+      max-width: 70%;
       width: 100%;
+    }
+
+    @include d(480) {
+      max-width: 90%;
     }
 
     &::before {
@@ -494,6 +506,13 @@
 .artists {
   padding-top: 150px;
 
+  .btn-scroll__wrapper {
+    position: absolute;
+    bottom: 3%;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+
   @include d(1366) {
     padding-top: 107px;
   }
@@ -506,6 +525,7 @@
     display: flex;
     flex-wrap: wrap;
     height: calc(100vh - 150px);
+    position: relative;
 
     @include d(1366) {
       height: calc(100vh - 107px);
@@ -521,6 +541,25 @@
 
     &__item {
       width: 25%;
+
+      &:nth-child(2) {
+        z-index: 2;
+        pointer-events: none;
+
+        .artists-list__link {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: $white;
+
+          img {
+            position: relative;
+            top: 0;
+            left: 0;
+            transform: translate(0px, 0px) scale(2);
+          }
+        }
+      }
 
       @include d(768) {
         width: 50%;
@@ -544,25 +583,20 @@
         position: absolute;
         top: 0;
         left: 0;
-        background-color: rgba($black, .4);
+        background-color: rgba($black, .6);
         z-index: 1;
         transition: background-color $hover-duration $timing;
       }
 
       &:hover {
-        // &::before {
-        // background-color: rgba($black, 0);
-        // }
+        &::before {
+          background-color: rgba($black, 0);
+        }
 
         .artists-list__bg {
           filter: grayscale(0);
         }
-
-        .artists-list__title {
-          transform: translate(-50%, -50%) scale(1.2);
-        }
       }
-
     }
 
     &__bg {
@@ -573,7 +607,8 @@
       width: 100%;
       object-fit: cover;
       filter: grayscale(1);
-      transition: filter $hover-duration $timing
+      transition: filter $hover-duration $timing;
+      transform: scale(1.001);
     }
 
     &__title {
@@ -591,6 +626,8 @@
 
 .artist {
   padding: 150px 0 30px 0;
+  display: flex;
+  flex-flow: column;
 
   @include d(1366) {
     padding: 107px 0 80px 0;
@@ -598,6 +635,10 @@
 
   @include d(1024) {
     padding: 73px 0;
+  }
+
+  @include d(991) {
+    display: block;
   }
 
   &::before,
@@ -755,6 +796,7 @@
   fill: $white;
   width: 100%;
   height: 100%;
+  pointer-events: none;
   transition: fill $hover-duration $timing;
 }
 
@@ -764,6 +806,10 @@
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+
+  .btn-scroll__wrapper {
+    margin-bottom: 30px;
+  }
 
   @include d(1366) {
     padding: 107px 0 0 0;
@@ -817,7 +863,7 @@
     }
 
     &_bottom {
-      bottom: 10%;
+      bottom: -40%;
       left: 0;
       max-width: 50%;
     }
@@ -836,9 +882,9 @@
       max-width: 610px;
     }
 
-    @include d(1024) {
+    @include d(768) {
       max-width: 50%;
-      margin: 0 auto;
+      margin: 0 auto 40px auto;
       top: 0;
     }
 
@@ -856,9 +902,12 @@
 
     @include d(768) {
       justify-content: space-around;
-
+      margin: 0 -15px;
     }
 
+    // @include d(575) {
+    //   margin: 0 -15px;
+    // }
     &__item {
       max-width: 295px;
       padding: 0 10px;
@@ -867,11 +916,13 @@
       position: relative;
 
       @include d(768) {
-        width: 50%;
+        // width: 50%;
+        max-width: 100%;
+        margin-bottom: 50px;
       }
 
       @include d(480) {
-        width: 100%;
+        // width: 100%;
       }
 
       &:first-child,
@@ -893,16 +944,23 @@
         }
       }
 
-      &::before {
-        content: "";
-        position: absolute;
-        width: 100%;
-        height: 30%;
-        bottom: 0;
-        left: 0;
-        clip-path: polygon(0 0, 100% 0, 82% 100%, 18% 100%);
-        background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
-      }
+      // &::before {
+      //   content: "";
+      //   position: absolute;
+      //   width: 100%;
+      //   height: 30%;
+      //   bottom: 0;
+      //   left: 0;
+      //   clip-path: polygon(0 0, 100% 0, 82% 100%, 18% 100%);
+      //   background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
+      // }
+
+
+    }
+
+    &__link {
+      display: block;
+      position: relative;
 
       &>img {
         width: auto;
@@ -914,17 +972,20 @@
     &__content {
       position: absolute;
       width: 100%;
-      bottom: -33px;
+      bottom: -45px;
       left: 50%;
       transform: translate(-50%, 0);
-      width: max-content;
+      width: fit-content;
 
       h3 {
         text-transform: uppercase;
         font-size: 32px;
         line-height: .8em;
         font-weight: 900;
-
+        color: #6C3923;
+        -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: #6C3923;
         @include d(1366) {
           font-size: 28px;
         }
@@ -935,6 +996,10 @@
         font-weight: 500;
         line-height: 1em;
         margin-bottom: 10px;
+        // color: $pink;
+        // -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+        // -webkit-text-stroke-width: 1px;
+        // -webkit-text-stroke-color: $pink;
       }
 
       img {
@@ -963,6 +1028,7 @@
 
     @include d(768) {
       width: 100%;
+      margin-bottom: 40px;
     }
   }
 
@@ -1001,6 +1067,10 @@
       justify-content: space-around;
     }
 
+    @include d(768) {
+      margin: 0 -15px;
+    }
+
     &__item {
       max-width: 295px;
       padding: 0 10px;
@@ -1008,13 +1078,23 @@
       margin-bottom: 100px;
       position: relative;
 
+      // &::before {
+      //   content: "";
+      //   position: absolute;
+      //   width: 100%;
+      //   height: 30%;
+      //   bottom: 0;
+      //   left: 0;
+      //   clip-path: polygon(0 0, 100% 0, 82% 100%, 18% 100%);
+      //   background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
+      // }
       @include d(991) {
         margin-bottom: 60px;
       }
 
-      @include d(480) {
+      @include d(768) {
         width: 100%;
-        margin-bottom: 80px;
+        max-width: 100%;
       }
 
       &:first-child {
@@ -1025,19 +1105,25 @@
         }
       }
 
-      &::before {
-        content: "";
-        position: absolute;
-        width: 100%;
-        height: 30%;
-        bottom: 0;
-        left: 0;
-        background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
+      // &::before {
+      //   content: "";
+      //   position: absolute;
+      //   width: 100%;
+      //   height: 30%;
+      //   bottom: 0;
+      //   left: 0;
+      //   background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
 
-        @include d(991) {
-          display: none;
-        }
-      }
+      //   @include d(991) {
+      //     display: none;
+      //   }
+      // }
+
+    }
+
+    &__link {
+      position: relative;
+      display: block;
 
       &>img {
         width: auto;
@@ -1048,7 +1134,7 @@
     &__content {
       position: absolute;
       width: 100%;
-      bottom: -33px;
+      bottom: -45px;
       left: 50%;
       transform: translate(-50%, 0);
       width: max-content;
@@ -1079,12 +1165,13 @@
 }
 
 .traits {
-  padding: 150px 0 0 0;
+  padding: 150px 0 40px 0;
   background-image: url(../img/traits-text-bg.png);
   background-size: contain;
   background-repeat: no-repeat;
-  background-position: bottom;
+  background-position: bottom right;
   display: flex;
+  flex-direction: column;
 
   @include d(1366) {
     padding: 107px 0 40px 0;
@@ -1139,12 +1226,12 @@
 
   &__content {
     width: 50%;
-    top: -60px;
+    top: 0;
     left: -90px;
     position: relative;
 
     @include d(1366) {
-      top: 0;
+      // top: 0;
       left: 0;
     }
 
@@ -1344,23 +1431,18 @@
 }
 
 .universe {
-  padding: 120px 0;
+  padding: 120px 0 0 0;
   background-image: url(../img/universe-text-bg.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
 
   @include d(1366) {
-    padding: 107px 0;
+    padding: 107px 0 0 0;
   }
 
   @include d(991) {
-    padding: 73px 0 100px 0;
-  }
-
-  @include d(600) {
-    padding: 73px 0 140px 0;
-
+    padding: 73px 0 0 0;
   }
 
   &::before {
@@ -1513,9 +1595,11 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-bottom: 100px;
 
     @include d(600) {
       flex-direction: column;
+      margin-bottom: 80px;
     }
 
   }

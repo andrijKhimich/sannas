@@ -75,7 +75,7 @@ gulp.task("js", function () {
     .src([
       // js libs uncomment what you need
       "node_modules/jquery/dist/jquery.min.js",
-      // "node_modules/slick-carousel/slick/slick.min.js",
+      "node_modules/slick-carousel/slick/slick.min.js",
       // "node_modules/svg4everybody/dist/svg4everybody.min.js",
       "node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.js",
       // "node_modules/odometer/odometer.min.js",
@@ -86,6 +86,8 @@ gulp.task("js", function () {
       // "src/libs/datepicker/dist/js/datepicker-full.min.js",
       // "src/libs/bootstrap-4.6.0/dist/js/bootstrap.bundle.min.js",
       // "src/libs/popper/popper.min.js",
+      // "src/libs/scrollspy/dist/jquery.scroll-spy.min.js",
+      // "src/libs/scroll/js/click-scroll.js",
 
       // "src/libs/bootstrap-4.6.0/dist/js/bootstrap.min.js",
 
