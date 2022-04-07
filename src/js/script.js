@@ -2,8 +2,7 @@ const burger = document.querySelector(".js-burger");
 const menu = document.querySelector(".js-menu");
 const body = document.querySelector("body");
 const header = document.querySelector(".js-header");
-const heroSection = document.querySelector(".js-hero");
-const heroSectionHeight = heroSection.offsetHeight;
+const heroSection = document.querySelector(".hero");
 
 const showContent = () => {
   document.querySelector(".main-wrapper").classList.remove("js-fadeIn");
@@ -43,10 +42,23 @@ document.addEventListener("DOMContentLoaded", () => {
     header.classList.remove('fixed');
   }
 
-  document.addEventListener("scroll", () => {
+  if (heroSection.scrollY >= 1) {
+    header.classList.add('fixed');
+  } else {
+    header.classList.remove('fixed');
+  }
+
+  heroSection.addEventListener("scroll", (e) => {
+    if (window.scrollY || heroSection.scrollTop >= 1) {
+      header.classList.add('fixed');
+    } else {
+      header.classList.remove('fixed');
+    }
+  });
+
+   document.addEventListener("scroll", () => {
     closeMenu();
-    console.log(window.scrollY);
-    if (window.scrollY >= 1) {
+    if (window.scrollY || heroSection.scrollTop >= 1) {
       header.classList.add('fixed');
     } else {
       header.classList.remove('fixed');
@@ -58,11 +70,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const rangeOutput = document.querySelector(".start");
   const rangeOutputPrice = document.querySelector(".range-total__value span");
   const nftPrice = 0.03;
-
   // change value of rage slider
   range.oninput = () => {
     rangeOutput.innerHTML = range.value;
-    rangeOutputPrice.innerHTML = nftPrice * range.value;
+    const result = nftPrice * range.value;
+    rangeOutputPrice.innerHTML = result.toFixed(2);
   }
 
   // jQuery for scrolling
@@ -97,7 +109,6 @@ document.addEventListener("DOMContentLoaded", () => {
     $('.nav-list li a:link').addClass('inactive');
     $('.nav-list li a').eq(0).addClass('active');
     $('.nav-list li a:link').eq(0).removeClass('inactive');
-
 
     $(window).on('resize', function () {
       techSlider();

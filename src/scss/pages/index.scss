@@ -83,7 +83,7 @@
     bottom: 0;
     right: 0;
     width: 71%;
-    z-index: 1;
+    z-index: -1;
 
     @include d(1024) {
       max-width: 65%;
@@ -102,7 +102,7 @@
 
   &-light {
     position: absolute;
-
+    z-index: -1;
     &_top {
       right: 0;
       top: 0;
